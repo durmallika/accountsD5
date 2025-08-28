@@ -1,0 +1,29 @@
+
+Note of this -prj
+
+ng new accountsD5 --no-standalone --no-ssr --routing --style=css
+Cd accountsD5
+Code .
+……….
+
+ng generate class model/accountsD5 --type=model
+
+
+…….
+Github
+
+frontEnd/ angular-old project -' accountsD5' & backEnd(spring-boot rest api project-'angry-spring-boot_D5') merge - to make a call on ui
+
+….
+
+
+
+this group of folder has the blend of -->
+old angular project- 'accountsD5 '+ 
+the old sbt rstApi project'angry-spring-bootD5'
+--- blended on together. —To make a api call on angular-json object.
+
+—>> cors - @CrossOrigin(origins = "*")
+This helps to make call in different  applications.
+
+…….

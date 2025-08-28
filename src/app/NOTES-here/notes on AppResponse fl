@@ -43,3 +43,15 @@ springboot prj is actually providing the data, which u can show in Angular in js
 any application is comprised of 2-things : 
                         one is presentation layer, where u can present the things,  (ui/ frontend)
                         second is the data, if u have data then only  u can present it , & who gives u the data: it is springboot. (server-side/backend)
+..............
+
+ 
+this group of folder has the blend of -->
+old angular project- 'accountsD5 '+ 
+the old sbt rstApi project'angry-spring-bootD5'
+--- blended on together. —To make a api call on angular-json object.
+
+—>> cors - @CrossOrigin(origins = "*")
+This helps to make call in different  applications.
+
+.............
