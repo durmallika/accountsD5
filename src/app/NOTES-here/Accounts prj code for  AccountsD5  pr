@@ -1,0 +1,387 @@
+
+// Accounts prj code for 
+// AccountsD5  pro
+
+
+// ….
+
+// Model
+
+// Accounts.model.ts
+
+// export class Accounts {
+    
+//     public  acNo:number;
+//     public  actype:string;
+//     public  balance:number;
+//     public  description:string;
+
+//     public constructor(acNo:number , actype:string, balance:number ,  description:string) {
+//          this.acNo=acNo;
+//          this.actype=actype;
+//          this.balance=balance;
+//          this.description=description;
+//     }
+
+// }
+
+// ….
+// App.response.model.ts
+
+
+// export class AppResponse {
+//       code:number=0;
+//         message:string="";
+
+// }
+
+// ….
+
+// ;;;;;;;;;;;;;;   APP.   ;;;;;;;;;;;;;;
+
+// App-routing . Module .ts 
+
+// import { NgModule } from '@angular/core';
+// import { RouterModule, Routes } from '@angular/router';
+
+// const routes: Routes = [];
+
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes)],
+//   exports: [RouterModule]
+// })
+// export class AppRoutingModule { }
+
+
+// …..
+
+// App compo css
+
+
+// .rocket {
+//   color:brown;
+//   font-weight: bold;
+//   font-size: 30px;  
+// }
+
+// …….
+
+// App compo html
+
+
+// <header style="background-color:#545b62;height: 30px;">
+// </header>
+
+// <div class="container">
+//    <h1>HEY! LEARNING ANGULAR!!!</h1>
+//    <img style="height:60px ;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsbZSGE-MbW_tZeyRtktbQFtuLG8vr2-ED6w&usqp=CAU"/>
+
+// <hr/>
+//  <div class="form-group">
+//        <label><b>A/C Number </b></label>
+//        <input type="text" [(ngModel)]="acNo" name="acNo" class="form-control" style="width: 50%;"/>
+//  </div>
+
+//  <div class="form-group">
+//   <label><b>A/C Type </b></label>
+//   <input type="text" [(ngModel)]="actype" name="actype" class="form-control" style="width: 50%;"/>
+// </div>
+
+// <div class="form-group">
+//   <label><b>Balance </b></label>
+//   <input type="text" [(ngModel)]="balance" name="balance" class="form-control" style="width: 50%;"/>
+// </div>
+
+// <div class="form-group">
+//   <label><b>Description </b></label>
+//   <input type="text" [(ngModel)]="description" name="description" class="form-control" style="width: 50%;"/>
+// </div>
+
+//  <div class="form-group">
+//   <button type="button" (click)="createAccount();"  class="btn btn-primary">CREATE ACCOUNT</button>
+// </div>
+// <hr/>
+
+// <!-- <input type="text" [(ngModel)]="jocker" name="jocker" class="form-control" style="width: 50%;"/>
+// <hr/>
+// <input type="text" [(ngModel)]="jocker" name="jocker" class="form-control" style="width: 50%;"/>
+
+// <hr/>
+// <span style="color:red;font-weight: bold;font-size: 20px;">{{jocker}}</span> -->
+
+// <h2>Account Data</h2>            
+// <table class="table table-bordered">
+//   <thead>
+//     <tr>
+//       <th>SNO</th>
+//       <th>A/C Number</th>
+//       <th>Account Type</th>
+//       <th>Balance</th>
+//       <th>description</th>
+//       <th>Action</th>
+//     </tr>
+//   </thead>
+//   <tbody>
+   
+//     <tr *ngFor="let account of accounts;let wowo = index">
+//       <td>{{wowo+1}}</td>
+//       <td>{{account.acNo}}</td>
+//       <td>{{account.actype}}</td>
+//       <td>{{account.balance}}</td>
+//       <td>{{account.description}}</td>
+//       <td>
+//         <button type="button" (click)="cdelete(account);" class="btn btn-danger">DELETE</button>
+
+//       </td>
+//     </tr>
+    
+//   </tbody>
+// </table>
+
+// </div>
+
+// ……….
+
+// App compo ts
+
+// import { HttpClient } from '@angular/common/http';
+// import { Component, OnInit } from '@angular/core';
+// import { Observable } from 'rxjs';
+// import { Accounts } from './model/accounts.model';
+// import { AppResponse } from './model/app.response.model';
+
+// @Component({
+//   selector: 'app-root',
+//   templateUrl: './app.component.html',
+//   styleUrls: ['./app.component.css']
+// })
+// export class AppComponent implements OnInit {
+ 
+//   title = 'accounts';
+
+//   acNo:number=0;
+//   actype:string="";
+//   balance:number=0;
+//   description:string="";
+//   jocker:string="NAMSTE!";
+//   //Creating ArrayList =new ArrayList<>()
+//   public accounts:Accounts[]=[]; 
+
+//   private httpClient : HttpClient;
+
+//   //@Autowired
+//   public constructor(httpClient : HttpClient){
+//      this.httpClient = httpClient;
+//   }
+
+//   ngOnInit(): void {
+//      let ac1:Accounts=new Accounts(939393939,"Current",234324,"This new account");
+//      let ac2:Accounts=new Accounts(324324324,"Saving",1000,"This new account1");
+//      let ac3:Accounts=new Accounts(543544,"Checking",29292,"This new account2");
+//      let ac4:Accounts=new Accounts(9879789,"Family",2000,"This new account3");
+//      let ac5:Accounts=new Accounts(10000,"Not Okay",3000,"This old account3");
+//      this.accounts.push(ac1); //[0]
+//      this.accounts.push(ac2); //[1]
+//      this.accounts.push(ac3); //[2]
+//      this.accounts.push(ac4); //[3]
+//      this.accounts.push(ac5);
+     
+//   }
+
+//   public createAccount():void {
+//     console.log("Ahahahah");
+//     let ac:Accounts=new Accounts(this.acNo,this.actype,this.balance,this.description);
+//     this.accounts.push(ac);
+//     //Make a call to Rest API
+//     var obj ={acNo:this.acNo,type:this.actype,balance:this.balance,description:this.description};
+//     let result:Observable<AppResponse> =this.httpClient.post<AppResponse>("http://localhost:444/v4/accounts",obj);
+//     result.subscribe(function(data){
+//       console.log(data);
+//     });
+//     this.cleatText();
+//   }
+
+//   private cleatText(){
+//     this.acNo=0;
+//     this.actype="";
+//     this.balance=0;
+//     this.description="";
+//   }
+
+//   public cdelete(account:Accounts):void {
+//     console.log(account); 
+//     this.accounts=this.accounts.filter(ac=>ac.acNo!=account.acNo);
+//   }
+
+  
+// }
+
+// ………
+
+// App . Module ts
+
+// import { NgModule } from '@angular/core';
+// import { FormsModule } from '@angular/forms';
+// import { BrowserModule } from '@angular/platform-browser';
+
+// import { AppRoutingModule } from './app-routing.module';
+// import { AppComponent } from './app.component';
+// import {HttpClientModule} from '@angular/common/http';
+// @NgModule({
+//   declarations: [
+//     AppComponent
+//   ],
+//   imports: [
+//     BrowserModule,
+//     AppRoutingModule,
+//     FormsModule,
+//     HttpClientModule 
+//   ],
+//   providers: [],
+//   bootstrap: [AppComponent]
+// })
+// export class AppModule { }
+
+// ……
+// >>>>>>>>>>>>>>>>>>>>>
+
+// Index html
+
+// <!doctype html>
+// <html lang="en">
+// <head>
+//   <meta charset="utf-8">
+//   <title>Accounts</title>
+//   <base href="/">
+//   <link rel="icon" type="image/x-icon" href="favicon.ico">
+ 
+
+//  <meta charset="utf-8">
+//  <meta name="viewport" content="width=device-width, initial-scale=1">
+//   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+//   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+//   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+//   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+// </head>
+// <body>
+//   <app-root></app-root>
+// </body>
+// </html>
+
+
+
+
+// ………
+
+// Polyfills . Ts
+
+// /**
+//  * This file includes polyfills needed by Angular and is loaded before the app.
+//  * You can add your own extra polyfills to this file.
+//  *
+//  * This file is divided into 2 sections:
+//  *   1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.
+//  *   2. Application imports. Files imported after ZoneJS that should be loaded before your main
+//  *      file.
+//  *
+//  * The current setup is for so-called "evergreen" browsers; the last versions of browsers that
+//  * automatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),
+//  * Edge >= 13 on the desktop, and iOS 10 and Chrome on mobile.
+//  *
+//  * Learn more in https://angular.io/guide/browser-support
+//  */
+
+// /***************************************************************************************************
+//  * BROWSER POLYFILLS
+//  */
+
+// /**
+//  * IE11 requires the following for NgClass support on SVG elements
+//  */
+// // import 'classlist.js';  // Run `npm install --save classlist.js`.
+
+// /**
+//  * Web Animations `@angular/platform-browser/animations`
+//  * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.
+//  * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).
+//  */
+// // import 'web-animations-js';  // Run `npm install --save web-animations-js`.
+
+// /**
+//  * By default, zone.js will patch all possible macroTask and DomEvents
+//  * user can disable parts of macroTask/DomEvents patch by setting following flags
+//  * because those flags need to be set before `zone.js` being loaded, and webpack
+//  * will put import in the top of bundle, so user need to create a separate file
+//  * in this directory (for example: zone-flags.ts), and put the following flags
+//  * into that file, and then add the following code before importing zone.js.
+//  * import './zone-flags';
+//  *
+//  * The flags allowed in zone-flags.ts are listed here.
+//  *
+//  * The following flags will work for all browsers.
+//  *
+//  * (window as any).__Zone_disable_requestAnimationFrame = true; // disable patch requestAnimationFrame
+//  * (window as any).__Zone_disable_on_property = true; // disable patch onProperty such as onclick
+//  * (window as any).__zone_symbol__UNPATCHED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames
+//  *
+//  *  in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js
+//  *  with the following flag, it will bypass `zone.js` patch for IE/Edge
+//  *
+//  *  (window as any).__Zone_enable_cross_context_check = true;
+//  *
+//  */
+
+// /***************************************************************************************************
+//  * Zone JS is required by default for Angular itself.
+//  */
+// import 'zone.js';  // Included with Angular CLI.
+
+
+// /***************************************************************************************************
+//  * APPLICATION IMPORTS
+//  */
+
+// …….
+
+// Test . Ts
+
+// // This file is required by karma.conf.js and loads recursively all the .spec and framework files
+
+// import 'zone.js/testing';
+// import { getTestBed } from '@angular/core/testing';
+// import {
+//   BrowserDynamicTestingModule,
+//   platformBrowserDynamicTesting
+// } from '@angular/platform-browser-dynamic/testing';
+
+// declare const require: {
+//   context(path: string, deep?: boolean, filter?: RegExp): {
+//     keys(): string[];
+//     <T>(id: string): T;
+//   };
+// };
+
+// // First, initialize the Angular testing environment.
+// getTestBed().initTestEnvironment(
+//   BrowserDynamicTestingModule,
+//   platformBrowserDynamicTesting()
+// );
+// // Then we find all the tests.
+// const context = require.context('./', true, /\.spec\.ts$/);
+// // And load the modules.
+// context.keys().map(context);
+
+
+// ………
+
+
+
+
+
+
+
+
+
+
+

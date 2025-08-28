@@ -1,0 +1,45 @@
+
+this model . ts file of app response is linked with the backEnd-springBoot project 'angry-spring-boot_D5' on intellij, 
+
+where, we have dto file of AppResponse, that is linked with this frontEnd/ui - file. 
+to make a api call on postman.
+
+
+.......
+code line- from app . compo . ts
+ <!-- let result:Observable<AppResponse> =this.httpClient.post<AppResponse>("http://localhost:444/v4/accounts",obj); -->
+
+Ques. difference between obserable & promise...?
+
+.........
+today's topic covered:::
+two-way data binding
+Dependency Injection
+HttpClientModule
+Making REST call in Angular
+
+........
+AccountController file from- angry-spring-boot_d5
+
+<!-- @RestController
+@RequestMapping("/v4")
+@CrossOrigin(origins = "*")
+public class AccountController {
+	
+	@Autowired
+	private ProfileService profileService; -->
+
+    ............
+    topic u have to do::
+   - Learn debugging 
+            (client-side debugging/or ui-frontend/
+             server-side debugging/ backend, )
+   - how to see the request payload
+   - how to see the response payload
+   - how to do replay
+....................
+
+springboot prj is actually providing the data, which u can show in Angular in json-format, 
+any application is comprised of 2-things : 
+                        one is presentation layer, where u can present the things,  (ui/ frontend)
+                        second is the data, if u have data then only  u can present it , & who gives u the data: it is springboot. (server-side/backend)

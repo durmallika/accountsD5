@@ -1,0 +1,79 @@
+
+<header style="background-color:#545b62;height: 30px;">
+</header>
+
+<div class="container">
+   <h1>HEY! LEARNING ANGULAR!!!</h1>
+   <img style="height:60px ;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsbZSGE-MbW_tZeyRtktbQFtuLG8vr2-ED6w&usqp=CAU"/>
+
+<hr/>
+ <div class="form-group">
+       <label><b>A/C Number </b></label>
+       <input type="text" [(ngModel)]="acNo" name="acNo" class="form-control" style="width: 50%;"/>
+ </div>
+
+ <div class="form-group">
+  <label><b>A/C Type </b></label>
+  <input type="text" [(ngModel)]="actype" name="actype" class="form-control" style="width: 50%;"/>
+</div>
+
+<div class="form-group">
+  <label><b>Balance </b></label>
+  <input type="text" [(ngModel)]="balance" name="balance" class="form-control" style="width: 50%;"/>
+</div>
+
+<div class="form-group">
+  <label><b>Description </b></label>
+  <input type="text" [(ngModel)]="description" name="description" class="form-control" style="width: 50%;"/>
+</div>
+
+ <div class="form-group">
+  <button type="button" (click)="createAccount();"  class="btn btn-primary">CREATE ACCOUNT</button>
+</div>
+<hr/>
+
+<!-- <input type="text" [(ngModel)]="jocker" name="jocker" class="form-control" style="width: 50%;"/>
+<hr/>
+<input type="text" [(ngModel)]="jocker" name="jocker" class="form-control" style="width: 50%;"/>
+
+<hr/>
+<span style="color:red;font-weight: bold;font-size: 20px;">{{jocker}}</span> -->
+
+<h2>Account Data</h2>            
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>SNO</th>
+      <th>A/C Number</th>
+      <th>Account Type</th>
+      <th>Balance</th>
+      <th>description</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+   
+    <tr *ngFor="let account of accounts;let wowo = index">
+      <td>{{wowo+1}}</td>
+      <td>{{account.acNo}}</td>
+      <td>{{account.actype}}</td>
+      <td>{{account.balance}}</td>
+      <td>{{account.description}}</td>
+      <td>
+        <button type="button" (click)="cdelete(account);" class="btn btn-danger">DELETE</button>
+
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+
+
+
+<router-outlet></router-outlet>
